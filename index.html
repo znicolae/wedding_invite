@@ -22,10 +22,46 @@ section{padding:110px 6vw}.wrap{max-width:1120px;margin:auto}.center{text-align:
 .rsvp{background:var(--paper)}.rsvp-box{max-width:780px;margin:auto;text-align:center;border:1px solid #241c1c2e;padding:75px 8vw}.rsvp p{color:var(--muted);line-height:1.8}.button{background:var(--wine);color:#fff;border-color:var(--wine);margin-top:25px}
 .registry{text-align:center}footer{background:#1e1416;color:#efe3d2;text-align:center;padding:100px 20px}.footer-script{font:400 62px Italianno;color:#c6a76c}.footer-names{font:500 clamp(60px,10vw,110px) "Cormorant Garamond";line-height:.8;margin:8px 0 25px}.footer-small{font-size:9px;text-transform:uppercase;letter-spacing:.28em;opacity:.6}
 @media(max-width:800px){.links{display:none}.couple-grid,.story-grid,.event-grid{grid-template-columns:1fr}.party-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:300px 200px 200px}.g:nth-child(1){grid-row:auto}.g:nth-child(4){grid-column:auto}.frame{inset:15px}.person{min-height:480px}.story-image{min-height:430px}}
+
+.invitation-cover[hidden],.hero-play[hidden]{display:none}
+html.invitation-closed{overflow:hidden;overscroll-behavior:none;scroll-behavior:auto}
+.invitation-cover{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:#e9e4de;overflow:hidden;transition:opacity .45s ease .58s,visibility 0s linear 1.03s}
+.invitation-cover.is-opening{opacity:0;visibility:hidden;pointer-events:none}
+.envelope{position:relative;isolation:isolate;width:min(100%,470px);height:100%;overflow:hidden;border:0;padding:0;color:#422e2a;background:#eee3d4;box-shadow:0 0 65px #392b222c;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.envelope:focus-visible{outline:2px solid var(--wine);outline-offset:-8px}
+.envelope-paper{position:absolute;inset:0;background:radial-gradient(ellipse at 48% 25%,#fff8ec,transparent 72%),repeating-linear-gradient(105deg,#6a492006 0 1px,transparent 1px 4px),#e9ddcc}
+.envelope-fold{position:absolute;inset:0;background:linear-gradient(170deg,#eee4d5,#f6eddf 61%,#e7d9c8);clip-path:polygon(0 76%,50% 49%,100% 76%,100% 100%,0 100%)}
+.envelope-flap{position:absolute;inset:0 0 auto;height:55%;background:linear-gradient(158deg,#fff9ef,#e9dcc8);clip-path:polygon(0 0,100% 0,100% 45%,50% 100%,0 45%);transform-origin:50% 0;transition:transform .7s cubic-bezier(.32,.02,.22,1)}
+.envelope-trim{position:absolute;inset:0;width:100%;height:100%;opacity:.75}
+.envelope-names{position:absolute;top:20%;left:0;width:100%;font:400 clamp(43px,10vw,65px)/1 Italianno,cursive;transition:opacity .25s}
+.envelope-seal{position:absolute;top:55%;left:50%;display:grid;place-items:center;width:clamp(70px,20vw,98px);aspect-ratio:1;border-radius:46% 50% 48% 51%;background:radial-gradient(circle at 36% 27%,#984b52,#6e2634 62%,#481321);box-shadow:inset 0 0 0 3px #7b3540,inset 0 0 0 5px #b36e676b,0 5px 12px #4a24275c;color:#f3cfb4;transform:translate(-50%,-50%);transition:transform .55s ease,opacity .4s ease .1s;font:400 32px/1 Italianno,cursive}
+.envelope-prompt{position:absolute;bottom:14%;left:0;width:100%;font:500 10px/1.4 "DM Sans",sans-serif;letter-spacing:.3em;text-transform:uppercase;transition:opacity .25s}
+.is-opening .envelope-flap{transform:perspective(850px) rotateX(115deg)}
+.is-opening .envelope-seal{opacity:0;transform:translate(-50%,15%) scale(.92)}
+.is-opening .envelope-names,.is-opening .envelope-prompt{opacity:0}
+.hero-play{position:absolute;z-index:1;right:38px;bottom:38px;border:1px solid #fff9;background:#241c1c;color:white;padding:10px 14px;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.invitation-cover,.envelope-flap,.envelope-seal,.envelope-names,.envelope-prompt{transition:none}html{scroll-behavior:auto}}
 </style></head>
 <body>
+<div class="invitation-cover" id="invitation-cover" hidden>
+  <button class="envelope" type="button" aria-label="Open the invitation for Nicolae and Iana">
+    <span class="envelope-paper" aria-hidden="true"></span>
+    <span class="envelope-fold" aria-hidden="true"></span>
+    <span class="envelope-flap" aria-hidden="true">
+      <svg class="envelope-trim" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0 44 L50 98 L100 44" fill="none" stroke="#bca988" stroke-width="3" stroke-linecap="round" stroke-dasharray=".2 1.25"/>
+        <path d="M0 41 L50 95 L100 41" fill="none" stroke="#a9906f" stroke-width=".35"/>
+      </svg>
+    </span>
+    <span class="envelope-names" aria-hidden="true">Nicolae &amp; Iana</span>
+    <span class="envelope-seal" aria-hidden="true">N &amp; I</span>
+    <span class="envelope-prompt" aria-hidden="true">Tap to open</span>
+  </button>
+</div>
+<div id="wedding-invitation">
+
 <nav class="nav" id="nav"><a href="#top" class="brand">N &amp; I</a><div class="links"><a href="#couple">Couple</a><a href="#story">Story</a><a href="#events">Events</a><a href="#party">People</a><a href="#gallery">Gallery</a><a href="#rsvp">RSVP</a></div></nav>
-<header class="hero" id="top"><video autoplay muted loop playsinline poster="assets/hero-poster.jpg"><source src="assets/hero.mp4" type="video/mp4"></video><div class="shade"></div><div class="frame"></div><div class="hero-content"><div class="eyebrow">A most delightful occasion</div><div class="hero-script">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date">Date to be announced · Romania</div><a class="hero-cta" href="#rsvp">Join the celebration</a></div><a class="scroll" href="#couple">Discover ↓</a></header>
+<header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" aria-hidden="true"><source src="assets/hero.mp4" type="video/mp4"></video><div class="shade"></div><div class="frame"></div><div class="hero-content"><div class="eyebrow">A most delightful occasion</div><div class="hero-script">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date">Date to be announced · Romania</div><a class="hero-cta" href="#rsvp">Join the celebration</a></div><a class="scroll" href="#couple">Discover ↓</a><button class="hero-play" type="button" hidden>Play video</button></header>
 <section class="couple" id="couple"><div class="wrap center"><div class="script">Allow us to introduce ourselves</div><div class="kicker">The couple</div><h2>Nicolae &amp; Iana</h2><p class="lead">Two lives, one rather excellent decision, and an evening of celebration to share with the people we love.</p><div class="couple-grid"><article class="person"><div class="person-copy"><h3>Nicolae</h3><p>Replace with a short personal paragraph about Nicolae.</p></div></article><article class="person"><div class="person-copy"><h3>Iana</h3><p>Replace with a short personal paragraph about Iana.</p></div></article></div></div></section>
 <section id="story"><div class="wrap story-grid"><div class="story-copy"><div class="kicker">Our love story</div><h2>It all began<br>with a little fate.</h2><div class="ornament">✦ ✦ ✦</div><p>Tell your story here in your own words — intimate, warm and a little cinematic.</p><div class="timeline"><div class="moment"><div class="year">01</div><div><h3>The first time</h3><p>How you met.</p></div></div><div class="moment"><div class="year">02</div><div><h3>The first date</h3><p>Your first date.</p></div></div><div class="moment"><div class="year">03</div><div><h3>The proposal</h3><p>The proposal story.</p></div></div><div class="moment"><div class="year">04</div><div><h3>The engagement</h3><p>The moment you decided to make it forever.</p></div></div></div></div><div class="story-image">YOUR STORY PHOTO</div></div></section>
 <section class="events" id="events"><div class="wrap center"><div class="kicker">Save the date</div><h2>Wedding events</h2><p class="lead">The details will be revealed here as the day takes shape.</p><div class="event-grid"><article class="event"><div class="num">01</div><h3>The Ceremony</h3><div class="meta">Date · Time · Venue</div><p>Exchange vows surrounded by family, friends and flowers.</p></article><article class="event"><div class="num">02</div><h3>The Reception</h3><div class="meta">Date · Time · Venue</div><p>Cocktails, dinner, candlelight and the first round of toasts.</p></article><article class="event"><div class="num">03</div><h3>The Dinner</h3><div class="meta">Date · Time · Venue</div><p>A feast worthy of a most distinguished guest list.</p></article><article class="event"><div class="num">04</div><h3>The Ball</h3><div class="meta">Late · Into the night</div><p>Classical strings, modern favourites and absolutely no pressure to behave.</p></article></div></div></section>
@@ -35,5 +71,58 @@ section{padding:110px 6vw}.wrap{max-width:1120px;margin:auto}.center{text-align:
 <section class="rsvp" id="rsvp"><div class="wrap"><div class="rsvp-box"><div class="script">Kindly reply</div><div class="kicker">The guest list</div><h2>Will you join us?</h2><p>RSVP details will be added here. This can open a free Google Form or Tally form.</p><a class="button" href="#">RSVP now ↗</a></div></div></section>
 <section class="registry"><div class="wrap"><div class="kicker">A little note</div><h2>Your presence is the present.</h2><p>If you would nevertheless like to give us something, registry or honeymoon details can be added here later.</p></div></section>
 <footer><div class="footer-script">Forever begins</div><div class="footer-names">Nicolae &amp; Iana</div><div class="footer-small">Thank you for celebrating with us · Date to be announced</div></footer>
-<script>addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));</script>
+</div>
+<script>
+const cover = document.getElementById('invitation-cover');
+const invitation = document.getElementById('wedding-invitation');
+const openButton = cover.querySelector('button');
+const hero = document.getElementById('top');
+const video = hero.querySelector('video');
+const playButton = hero.querySelector('button');
+const root = document.documentElement;
+
+function playHero() {
+  video.muted = true;
+  video.play().then(() => {
+    playButton.hidden = true;
+  }).catch(() => {
+    playButton.hidden = Boolean(video.error);
+  });
+}
+
+playButton.addEventListener('click', playHero);
+video.addEventListener('error', () => { playButton.hidden = true; });
+
+if (location.hash) {
+  playHero();
+} else {
+  root.classList.add('invitation-closed');
+  invitation.inert = true;
+  cover.hidden = false;
+
+  openButton.addEventListener('click', () => {
+    // Request playback inside the tap so mobile browsers can start it inline.
+    playHero();
+    window.scrollTo(0, 0);
+    cover.classList.add('is-opening');
+
+    function revealInvitation() {
+      cover.hidden = true;
+      invitation.inert = false;
+      root.classList.remove('invitation-closed');
+      hero.focus({ preventScroll: true });
+    }
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealInvitation();
+    } else {
+      window.setTimeout(revealInvitation, 1050);
+    }
+  }, { once: true });
+}
+
+addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
+});
+</script>
 </body></html>
