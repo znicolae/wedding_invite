@@ -85,6 +85,36 @@ html[lang="ro"] .person:after{content:"ADĂUGAȚI UN PORTRET"}
 #rsvp-form-link[hidden]{display:none}
 section{scroll-margin-top:70px}
 @media(max-width:800px){.introduction,.story-moments,.details-grid{grid-template-columns:1fr;gap:32px}.countdown{gap:8px}.countdown span{font-size:9px}.details-grid article{padding:24px}.photo-placeholder{min-height:300px}}
+
+/* Floral accents stay within selected sections, away from the central copy. */
+#couple,#story,#details,#gallery,#rsvp{position:relative;isolation:isolate}
+#couple::before,#story::before,#details::before,#gallery::before,#rsvp::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:url("assets/wisteria.jpg");
+  background-repeat:no-repeat;
+  background-size:100% auto;
+  background-position:center bottom;
+  opacity:.2;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 5%,#000 42%,#000 85%,transparent);
+  mask-image:linear-gradient(to bottom,transparent 5%,#000 42%,#000 85%,transparent);
+}
+#couple::before{background-size:720px auto;background-position:right -230px bottom -80px;opacity:.16}
+#story::before{background-size:850px auto;background-position:left -330px bottom -50px;opacity:.16}
+#details::before{background-size:100% auto;opacity:.24}
+#gallery::before{background-size:780px auto;background-position:right -280px bottom -100px;opacity:.15}
+#rsvp::before{opacity:.27}
+.details-grid article{background:#f1e2d8e6}
+.rsvp-box{background:#faf4e9d9}
+@media(max-width:800px){
+  #couple::before{background-size:520px auto;background-position:right -220px bottom -60px}
+  #story::before{background-size:560px auto;background-position:left -280px bottom -40px}
+  #details::before,#rsvp::before{background-size:650px auto;background-position:center bottom -40px;opacity:.18}
+  #gallery::before{background-size:520px auto;background-position:right -240px bottom -50px}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
