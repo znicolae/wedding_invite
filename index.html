@@ -87,24 +87,25 @@ section{scroll-margin-top:70px}
 @media(max-width:800px){.introduction,.story-moments,.details-grid{grid-template-columns:1fr;gap:32px}.countdown{gap:8px}.countdown span{font-size:9px}.details-grid article{padding:24px}.photo-placeholder{min-height:300px}}
 
 
-:root{--floral-border-width:clamp(44px,12vw,210px)}
+:root{--floral-border-width:clamp(44px,12vw,210px);--floral-border-inset:calc(var(--floral-border-width) / 2)}
 body{background:var(--ivory)}
-#wedding-invitation{position:relative;margin-inline:var(--floral-border-width)}
+#wedding-invitation{position:relative;margin-inline:var(--floral-border-inset)}
 #wedding-invitation::before,#wedding-invitation::after{
   content:"";
   position:absolute;
   top:0;
   bottom:0;
   width:var(--floral-border-width);
+  z-index:2;
   pointer-events:none;
   background-size:100% auto;
   background-repeat:repeat-y;
 }
-#wedding-invitation::before{right:100%;background-image:url("assets/floral-banner-left.png");background-position:left top}
-#wedding-invitation::after{left:100%;background-image:url("assets/floral-banner-right.png");background-position:right top}
-.nav{left:var(--floral-border-width);right:var(--floral-border-width);width:auto}
+#wedding-invitation::before{left:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-left.png");background-position:left top}
+#wedding-invitation::after{right:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-right.png");background-position:right top}
+.nav{left:var(--floral-border-inset);right:var(--floral-border-inset);width:auto}
 .invitation-cover{
-  padding-inline:var(--floral-border-width);
+  padding-inline:var(--floral-border-inset);
   background-color:var(--ivory);
   background-image:url("assets/floral-banner-left.png"),url("assets/floral-banner-right.png");
   background-position:left top,right top;
