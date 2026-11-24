@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300}a{text-decoration:none;color:inherit}
 .nav{position:fixed;z-index:20;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 5vw;color:#fff;transition:.3s}.nav.scrolled{background:#513361f5;padding:13px 5vw}.brand{font:500 27px "Cormorant Garamond"}.links{display:flex;gap:25px;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
-.hero{height:100svh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:#fff}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.68}.shade{position:absolute;inset:0;background:radial-gradient(circle,transparent,#241c2dc9),linear-gradient(#30223855,#2c2034cc)}
+.hero{height:100svh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:#fff}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.68}
 
 .hero-content{position:relative;text-align:center;padding:20px}.eyebrow,.kicker{font-size:9px;text-transform:uppercase;letter-spacing:.32em}.hero-script,.script{font:400 clamp(40px,6vw,70px) Italianno;color:var(--gold)}.hero-script{color:var(--gilt)}
 .hero-names{font:500 clamp(72px,13vw,160px) "Cormorant Garamond";line-height:.72;margin:8px 0 28px}.hero-date{font-size:10px;letter-spacing:.26em;text-transform:uppercase}.hero-cta,.button{display:inline-block;margin-top:32px;padding:14px 25px;border:1px solid #ffffff88;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;text-transform:uppercase}
@@ -221,6 +221,44 @@ footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
   footer{padding-bottom:max(160px,38vw)}
   .hero-content{padding-top:90px;padding-bottom:70px}
 }
+
+/* The video determines its own height; invitation copy flows beneath it. */
+.hero{
+  display:block;
+  height:auto;
+  min-height:0;
+  background:var(--ivory);
+  color:var(--plum);
+}
+.hero video{
+  position:static;
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  opacity:1;
+}
+.hero-content{
+  padding:48px max(32px,calc(var(--floral-border-inset) + 24px));
+}
+.hero-script{color:var(--plum)}
+.hero-cta{background:var(--plum);color:var(--ivory);border-color:var(--plum)}
+.hero .scroll{
+  position:relative;
+  display:block;
+  left:auto;
+  bottom:auto;
+  transform:none;
+  text-align:center;
+  padding:0 24px 32px;
+  z-index:3;
+}
+.hero-play{top:12px;right:12px;bottom:auto;z-index:4}
+@media(max-width:800px){
+  .hero-content{padding:36px 40px}
+  .hero-names{font-size:clamp(48px,13vw,88px)}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -244,7 +282,7 @@ footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
 <div class="floral-cap floral-cap-bottom" aria-hidden="true"></div>
 
 
-<header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" poster="assets/hand-ring-poster.jpg" aria-hidden="true"><source src="assets/hand-ring.mp4" type="video/mp4"></video><div class="shade"></div><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
+<header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" poster="assets/hand-ring-poster.jpg" aria-hidden="true"><source src="assets/hand-ring.mp4" type="video/mp4"></video><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
 <section class="couple" id="couple"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu noi">A photo of us</div><div><div class="kicker"><span data-ro="Prezentare">Meet the couple</span></div><h2>Nicolae &amp; Iana</h2><p class="lead" data-ro="Două vieți, un viitor împreună. Abia așteptăm să sărbătorim începutul căsniciei noastre alături de cei dragi.">Two lives, one shared future. We are looking forward to celebrating the beginning of our marriage with the people we love.</p></div></div></section>
 <section id="story"><div class="wrap"><div class="center"><div class="kicker" data-ro="Povestea noastră">Our story</div><h2 data-ro="Momentele care ne-au adus aici">The moments that brought us here</h2></div><ol class="story-moments"><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cum ne-am cunoscut">How we met</h3><p data-ro="Începutul poveștii noastre.">The beginning of our story.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Prima întâlnire">Our first date</h3><p data-ro="Primele amintiri împreună.">The first memories we made together.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cererea în căsătorie">The proposal</h3><p data-ro="Momentul în care am ales să fim împreună pentru totdeauna.">The moment we chose forever.</p></li></ol></div></section>
 <section class="godparents" id="party"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu nașii">A photo of our godparents</div><div><div class="kicker" data-ro="Alături de noi">By our side</div><h2 data-ro="Nașii noștri">Our wedding godparents</h2><p class="lead" data-ro="Un loc special pentru cei care ne vor îndruma și ne vor fi alături la începutul vieții de familie.">A special place for the people who will guide and support us as we begin our married life.</p></div></div></section>
