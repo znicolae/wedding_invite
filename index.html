@@ -101,13 +101,13 @@ body{background:var(--ivory)}
   background-size:100% auto;
   background-repeat:repeat-y;
 }
-#wedding-invitation::before{left:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-left.png");background-position:left top}
-#wedding-invitation::after{right:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-right.png");background-position:right top}
+#wedding-invitation::before{left:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-left.webp");background-position:left top}
+#wedding-invitation::after{right:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-right.webp");background-position:right top}
 .nav{left:var(--floral-border-inset);right:var(--floral-border-inset);width:auto}
 .invitation-cover{
   padding-inline:var(--floral-border-inset);
   background-color:var(--ivory);
-  background-image:url("assets/floral-banner-left.png"),url("assets/floral-banner-right.png");
+  background-image:url("assets/floral-left.webp"),url("assets/floral-right.webp");
   background-position:left top,right top;
   background-size:var(--floral-border-width) auto;
   background-repeat:repeat-y;
@@ -185,6 +185,42 @@ footer{background:var(--ivory);color:var(--plum)}
   footer{padding-inline:48px}
 }
 @media(prefers-reduced-motion:reduce){.invitation-cover{transition:none}.invitation-cover.is-revealing{transform:none}}
+
+/* Transparent corner panels meet the vertically repeated side ornaments. */
+#wedding-invitation{
+  --floral-cap-height:calc((100vw - var(--floral-border-width)) * .437);
+}
+.floral-cap{
+  position:absolute;
+  left:calc(0px - var(--floral-border-inset));
+  right:calc(0px - var(--floral-border-inset));
+  height:var(--floral-cap-height);
+  z-index:2;
+  pointer-events:none;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+}
+.floral-cap-top{top:0;background-image:url("assets/floral-top.webp");background-position:center top}
+.floral-cap-bottom{bottom:0;background-image:url("assets/floral-bottom.webp");background-position:center bottom}
+#wedding-invitation::before,#wedding-invitation::after{
+  top:calc(var(--floral-cap-height) * .72);
+  bottom:calc(var(--floral-cap-height) * .72);
+  -webkit-mask-image:linear-gradient(transparent,#000 40px,#000 calc(100% - 40px),transparent);
+  mask-image:linear-gradient(transparent,#000 40px,#000 calc(100% - 40px),transparent);
+}
+footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
+.invitation-cover{
+  background-image:url("assets/floral-top.webp"),url("assets/floral-bottom.webp"),url("assets/floral-left.webp"),url("assets/floral-right.webp");
+  background-position:center top,center bottom,left top,right top;
+  background-size:100% auto,100% auto,var(--floral-border-width) auto,var(--floral-border-width) auto;
+  background-repeat:no-repeat,no-repeat,repeat-y,repeat-y;
+}
+@media(max-width:800px){
+  #wedding-invitation{--floral-cap-height:43.7vw}
+  .floral-cap{left:0;right:0}
+  footer{padding-bottom:max(160px,38vw)}
+  .hero-content{padding-top:90px;padding-bottom:70px}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -204,6 +240,8 @@ footer{background:var(--ivory);color:var(--plum)}
   </div>
 </div>
 <div id="wedding-invitation">
+<div class="floral-cap floral-cap-top" aria-hidden="true"></div>
+<div class="floral-cap floral-cap-bottom" aria-hidden="true"></div>
 
 
 <header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" poster="assets/hand-ring-poster.jpg" aria-hidden="true"><source src="assets/hand-ring.mp4" type="video/mp4"></video><div class="shade"></div><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
