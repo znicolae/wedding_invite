@@ -7,28 +7,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Italianno&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ivory: #faf4e9;
-  --paper: #f1e2d8;
-  --blush: #ecd3ce;
-  --lilac: #e9deef;
-  --blue: #dce6f2;
-  --ink: #342738;
-  --plum: #583a56;
-  --gold: #856539;
-  --gilt: #e4c99c;
-  --muted: #655563;
-  --line: #886e563d;
+  --ivory: #fbf7ed;
+  --paper: #f5eee2;
+  --blush: #f1dce0;
+  --lilac: #ede4f2;
+  --blue: #e5ebf6;
+  --ink: #513361;
+  --plum: #633e75;
+  --gold: #967126;
+  --gilt: #dfbf80;
+  --muted: #695675;
+  --line: #aa874c40;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300}a{text-decoration:none;color:inherit}
-.nav{position:fixed;z-index:20;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 5vw;color:#fff;transition:.3s}.nav.scrolled{background:#342738f5;padding:13px 5vw}.brand{font:500 27px "Cormorant Garamond"}.links{display:flex;gap:25px;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
-.hero{height:100svh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:#fff}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.68}.shade{position:absolute;inset:0;background:radial-gradient(circle,transparent,#241c2dc9),linear-gradient(#30223855,#2c2034cc)}
+.nav{position:fixed;z-index:20;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 5vw;color:#fff;transition:.3s}.nav.scrolled{background:#513361f5;padding:13px 5vw}.brand{font:500 27px "Cormorant Garamond"}.links{display:flex;gap:25px;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.hero{height:100svh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:#fff}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.68}
 
 .hero-content{position:relative;text-align:center;padding:20px}.eyebrow,.kicker{font-size:9px;text-transform:uppercase;letter-spacing:.32em}.hero-script,.script{font:400 clamp(40px,6vw,70px) Italianno;color:var(--gold)}.hero-script{color:var(--gilt)}
 .hero-names{font:500 clamp(72px,13vw,160px) "Cormorant Garamond";line-height:.72;margin:8px 0 28px}.hero-date{font-size:10px;letter-spacing:.26em;text-transform:uppercase}.hero-cta,.button{display:inline-block;margin-top:32px;padding:14px 25px;border:1px solid #ffffff88;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;text-transform:uppercase}
 section{padding:110px 6vw}.wrap{max-width:1120px;margin:auto}.center{text-align:center}h2{font:500 clamp(54px,7vw,94px) "Cormorant Garamond";line-height:.9;margin:15px 0 28px}.lead{font:400 25px/1.4 "Cormorant Garamond";max-width:700px;margin:0 auto}.ornament{color:var(--gold);letter-spacing:.5em;margin:28px 0}
 .couple{background:var(--paper)}.couple-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:65px}.person{min-height:580px;position:relative;overflow:hidden;background:linear-gradient(150deg,var(--blush),var(--lilac) 53%,#ad8aaa)}.person:after{content:"ADD PORTRAIT";position:absolute;inset:0;display:grid;place-items:center;color:var(--plum);letter-spacing:.3em;font-size:10px}.person-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:25px;color:var(--ink)}.person-copy h3{font:500 54px "Cormorant Garamond";margin:0}.person-copy p{font-size:12px;line-height:1.7}
 .story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}.story-copy p{color:var(--muted);line-height:1.9;max-width:530px}.timeline{margin-top:35px}.moment{display:grid;grid-template-columns:75px 1fr;border-top:1px solid var(--line);padding:22px 0}.moment:last-child{border-bottom:1px solid var(--line)}.year{color:var(--plum);font-size:10px;letter-spacing:.15em}.moment h3{font:500 29px "Cormorant Garamond";margin:0 0 6px}.moment p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.story-image{min-height:650px;background:linear-gradient(145deg,var(--blue),var(--ivory) 56%,var(--lilac));display:grid;place-items:center;color:var(--plum);font-size:10px;letter-spacing:.28em}
-.events{background:var(--blue);color:var(--ink)}.events .kicker{color:var(--plum)}.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:60px}.event{padding:50px;background:#faf4e9cc;border:1px solid var(--line)}.num{font:400 43px Italianno;color:var(--gold)}.event h3{font:500 42px "Cormorant Garamond";margin:8px 0}.event p{font-size:12px;line-height:1.8;color:var(--muted)}.meta{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--plum);margin-top:25px}
+.events{background:var(--blue);color:var(--ink)}.events .kicker{color:var(--plum)}.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:60px}.event{padding:50px;background:#fbf7edcc;border:1px solid var(--line)}.num{font:400 43px Italianno;color:var(--gold)}.event h3{font:500 42px "Cormorant Garamond";margin:8px 0}.event p{font-size:12px;line-height:1.8;color:var(--muted)}.meta{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--plum);margin-top:25px}
 .dress{text-align:center;background:var(--lilac)}.dress p,.registry p{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.8}.dress-tag{display:inline-block;margin-top:30px;padding:12px 18px;border:1px solid var(--gold);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--plum)}
 .party-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px}.member{background:var(--paper);text-align:center;padding-bottom:25px}.member-photo{height:300px;background:linear-gradient(145deg,var(--blush),var(--lilac) 55%,var(--blue))}.member h3{font:500 27px "Cormorant Garamond";margin:18px 0 4px}.member span{font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--plum)}
 .gallery{background:var(--ivory)}.gallery-grid{display:grid;grid-template-columns:1.15fr .85fr 1fr;grid-template-rows:280px 280px;gap:5px;margin-top:60px}.g{background:linear-gradient(145deg,var(--blush),var(--lilac));display:grid;place-items:center;color:var(--plum);font-size:9px;letter-spacing:.3em}.g:nth-child(even){background:linear-gradient(145deg,var(--blue),var(--ivory))}.g:nth-child(1){grid-row:span 2}.g:nth-child(4){grid-column:2/span 2}
@@ -40,14 +40,14 @@ section{padding:110px 6vw}.wrap{max-width:1120px;margin:auto}.center{text-align:
 html.invitation-closed{overflow:hidden;overscroll-behavior:none;scroll-behavior:auto}
 .invitation-cover{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:var(--paper);overflow:hidden;transition:opacity .32s ease}
 .invitation-cover.is-revealing{opacity:0;pointer-events:none}
-.envelope{position:relative;width:min(100%,47.4359vh);width:min(100%,47.4359svh);aspect-ratio:740/1560;background:var(--ivory);box-shadow:0 0 50px #34273826}
+.envelope{position:relative;width:min(100%,47.4359vh);width:min(100%,47.4359svh);aspect-ratio:740/1560;background:var(--ivory);box-shadow:0 0 50px #51336126}
 .envelope img,.envelope video,.envelope button{position:absolute;inset:0;width:100%;height:100%}
 .envelope img,.envelope video{display:block;object-fit:contain}
 .envelope video{opacity:0;pointer-events:none}
 .envelope.is-playing video{opacity:1}
 .envelope button{border:0;padding:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .envelope button:focus-visible{outline:2px solid var(--plum);outline-offset:-6px}
-.envelope-prompt{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:2px;padding:12px 16px;background:#faf4e9f5;color:var(--plum);font:500 10px/1.4 "DM Sans",sans-serif;letter-spacing:.25em;text-transform:uppercase}
+.envelope-prompt{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:2px;padding:12px 16px;background:#fbf7edf5;color:var(--plum);font:500 10px/1.4 "DM Sans",sans-serif;letter-spacing:.25em;text-transform:uppercase}
 .envelope.is-opening .envelope-prompt{opacity:0}
 .hero-play{position:absolute;z-index:1;right:38px;bottom:38px;border:1px solid #fff9;background:var(--plum);color:white;padding:10px 14px;cursor:pointer}
 @media(prefers-reduced-motion:reduce){.invitation-cover{transition:none}html{scroll-behavior:auto}}
@@ -101,18 +101,18 @@ body{background:var(--ivory)}
   background-size:100% auto;
   background-repeat:repeat-y;
 }
-#wedding-invitation::before{left:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-left.png");background-position:left top}
-#wedding-invitation::after{right:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-banner-right.png");background-position:right top}
+#wedding-invitation::before{left:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-left.webp");background-position:left top}
+#wedding-invitation::after{right:calc(0px - var(--floral-border-inset));background-image:url("assets/floral-right.webp");background-position:right top}
 .nav{left:var(--floral-border-inset);right:var(--floral-border-inset);width:auto}
 .invitation-cover{
   padding-inline:var(--floral-border-inset);
   background-color:var(--ivory);
-  background-image:url("assets/floral-banner-left.png"),url("assets/floral-banner-right.png");
+  background-image:url("assets/floral-left.webp"),url("assets/floral-right.webp");
   background-position:left top,right top;
   background-size:var(--floral-border-width) auto;
   background-repeat:repeat-y;
 }
-.envelope{box-shadow:0 0 35px #34273814}
+.envelope{box-shadow:0 0 35px #51336114}
 @media(max-width:800px){
   :root{--floral-border-width:clamp(22px,7vw,56px)}
   .hero-names{font-size:clamp(50px,11vw,88px);line-height:.9}
@@ -138,7 +138,7 @@ footer{padding-inline:calc(var(--floral-border-inset) + 24px)}
   right:0;
   width:auto;
   z-index:20;
-  background:#342738f5;
+  background:#513361f5;
   padding-left:calc(var(--floral-border-width) + 24px);
   padding-right:max(110px,calc(var(--floral-border-width) + 24px));
   gap:20px;
@@ -153,6 +153,141 @@ footer{padding-inline:calc(var(--floral-border-inset) + 24px)}
   }
   section{padding-inline:calc(var(--floral-border-inset) + 20px)}
 }
+
+/* A mobile-first floral frame with readable content above the transparent edges. */
+:root{--floral-border-width:clamp(110px,14vw,220px)}
+section,.couple,.godparents,.countdown-section,.good-to-know,.gallery,.rsvp{background-color:var(--ivory)}
+.godparents,.good-to-know{background:linear-gradient(135deg,var(--ivory),#ede4f25c,var(--ivory))}
+.countdown-section,.rsvp{background:linear-gradient(135deg,var(--ivory),#e5ebf65c,var(--ivory))}
+footer{background:var(--ivory);color:var(--plum)}
+.footer-script{color:var(--plum)}
+.footer-small{color:var(--muted)}
+.hero{background:var(--ink)}
+.invitation-cover{transform-origin:50% 50%;transition:opacity .85s ease,transform .85s cubic-bezier(.2,.65,.25,1)}
+.invitation-cover.is-revealing{opacity:0;transform:scale(1.28);pointer-events:none}
+#wedding-invitation>.hero{isolation:isolate}
+@media(max-width:800px){
+  :root{--floral-border-width:clamp(80px,23vw,112px)}
+  #wedding-invitation{margin-inline:0}
+  #wedding-invitation::before{left:0}
+  #wedding-invitation::after{right:0}
+  section{padding:76px 48px;scroll-margin-top:20px}
+  section>.wrap,footer>*{position:relative;z-index:3}
+  h2{font-size:clamp(36px,10vw,58px);line-height:1.08;overflow-wrap:break-word}
+  .hero-content{padding-inline:40px;z-index:3}
+  .hero-names{font-size:clamp(48px,13vw,88px)}
+  .hero-date{font-size:10px}
+  .rsvp-box{padding:40px 12px}
+  .details-grid article{padding:20px 14px}
+  .story-moments h3,.details-grid h3{font-size:30px}
+  .photo-placeholder{min-height:260px}
+  .invitation-cover{padding-inline:24px}
+  footer{padding-inline:48px}
+}
+@media(prefers-reduced-motion:reduce){.invitation-cover{transition:none}.invitation-cover.is-revealing{transform:none}}
+
+/* Transparent corner panels meet the vertically repeated side ornaments. */
+#wedding-invitation{
+  --floral-cap-height:calc((100vw - var(--floral-border-width)) * .437);
+}
+.floral-cap{
+  position:absolute;
+  left:calc(0px - var(--floral-border-inset));
+  right:calc(0px - var(--floral-border-inset));
+  height:var(--floral-cap-height);
+  z-index:2;
+  pointer-events:none;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+}
+.floral-cap-top{top:0;background-image:url("assets/floral-top.webp");background-position:center top}
+.floral-cap-bottom{bottom:0;background-image:url("assets/floral-bottom.webp");background-position:center bottom}
+#wedding-invitation::before,#wedding-invitation::after{
+  top:calc(var(--floral-cap-height) * .72);
+  bottom:calc(var(--floral-cap-height) * .72);
+  -webkit-mask-image:linear-gradient(transparent,#000 40px,#000 calc(100% - 40px),transparent);
+  mask-image:linear-gradient(transparent,#000 40px,#000 calc(100% - 40px),transparent);
+}
+footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
+.invitation-cover{
+  background-image:url("assets/floral-top.webp"),url("assets/floral-bottom.webp"),url("assets/floral-left.webp"),url("assets/floral-right.webp");
+  background-position:center top,center bottom,left top,right top;
+  background-size:100% auto,100% auto,var(--floral-border-width) auto,var(--floral-border-width) auto;
+  background-repeat:no-repeat,no-repeat,repeat-y,repeat-y;
+}
+@media(max-width:800px){
+  #wedding-invitation{--floral-cap-height:43.7vw}
+  .floral-cap{left:0;right:0}
+  footer{padding-bottom:max(160px,38vw)}
+  .hero-content{padding-top:90px;padding-bottom:70px}
+}
+
+/* The video determines its own height; invitation copy flows beneath it. */
+.hero{
+  display:block;
+  height:auto;
+  min-height:0;
+  background:var(--ivory);
+  color:var(--plum);
+}
+.hero video{
+  position:static;
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  opacity:1;
+}
+.hero-content{
+  padding:48px max(32px,calc(var(--floral-border-inset) + 24px));
+}
+.hero-script{color:var(--plum)}
+.hero-cta{background:var(--plum);color:var(--ivory);border-color:var(--plum)}
+.hero .scroll{
+  position:relative;
+  display:block;
+  left:auto;
+  bottom:auto;
+  transform:none;
+  text-align:center;
+  padding:0 24px 32px;
+  z-index:3;
+}
+.hero-play{top:12px;right:12px;bottom:auto;z-index:4}
+@media(max-width:800px){
+  .hero-content{padding:36px 40px}
+  .hero-names{font-size:clamp(48px,13vw,88px)}
+}
+
+/* Fade the floral frame in with the envelope's exit. */
+:root{--floral-border-width:clamp(94px,12vw,188px)}
+#wedding-invitation{--floral-cap-height:calc((100vw - var(--floral-border-width)) * .371)}
+.floral-cap{background-size:85% auto}
+#wedding-invitation::before,#wedding-invitation::after,.floral-cap{
+  opacity:1;
+  transition:opacity .9s ease;
+}
+html.invitation-closed #wedding-invitation::before,
+html.invitation-closed #wedding-invitation::after,
+html.invitation-closed .floral-cap{opacity:0}
+.invitation-cover{background-image:none;padding:0}
+.envelope{
+  width:min(100%,177.7778vh);
+  width:min(100%,177.7778svh);
+  aspect-ratio:16/9;
+}
+.hero{min-height:85svh}
+.hero-content{padding-block:64px}
+@media(max-width:800px){
+  :root{--floral-border-width:clamp(68px,19.5vw,95px)}
+  #wedding-invitation{--floral-cap-height:37.1vw}
+  .hero{min-height:72svh}
+  .hero-content{padding:56px 40px}
+}
+@media(prefers-reduced-motion:reduce){
+  #wedding-invitation::before,#wedding-invitation::after,.floral-cap{transition:none}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -164,17 +299,19 @@ footer{padding-inline:calc(var(--floral-border-inset) + 24px)}
 </details>
 <div class="invitation-cover" id="invitation-cover" hidden>
   <div class="envelope">
-    <img src="assets/blue-thumbnail.jpg" alt="" width="971" height="2048">
-    <video src="assets/blue-floral-invitation.mp4" poster="assets/blue-thumbnail.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+    <img src="assets/envelope-new.jpg" alt="" width="1280" height="720">
+    <video src="assets/envelope-new.mp4" poster="assets/envelope-new.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
     <button type="button" aria-label="Open the invitation for Nicolae and Iana" data-ro-label="Deschide invitația la nunta lui Nicolae și a Ianei">
       <span class="envelope-prompt" aria-hidden="true" data-ro="Atinge pentru a deschide">Tap to open</span>
     </button>
   </div>
 </div>
 <div id="wedding-invitation">
+<div class="floral-cap floral-cap-top" aria-hidden="true"></div>
+<div class="floral-cap floral-cap-bottom" aria-hidden="true"></div>
 
-<nav class="nav" id="nav"><a href="#top" class="brand">N &amp; I</a><div class="links"><a href="#couple" data-ro="Cuplul">Couple</a><a href="#story" data-ro="Povestea">Story</a><a href="#party" data-ro="Nașii">Godparents</a><a href="#details" data-ro="Detalii">Details</a><a href="#gallery" data-ro="Galerie">Gallery</a><a href="#rsvp" data-ro="Confirmare">RSVP</a></div></nav>
-<header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" aria-hidden="true"><source src="assets/hero.mp4" type="video/mp4"></video><div class="shade"></div><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
+
+<header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" poster="assets/hand-ring-poster.jpg" aria-hidden="true"><source src="assets/hand-ring.mp4" type="video/mp4"></video><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
 <section class="couple" id="couple"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu noi">A photo of us</div><div><div class="kicker"><span data-ro="Prezentare">Meet the couple</span></div><h2>Nicolae &amp; Iana</h2><p class="lead" data-ro="Două vieți, un viitor împreună. Abia așteptăm să sărbătorim începutul căsniciei noastre alături de cei dragi.">Two lives, one shared future. We are looking forward to celebrating the beginning of our marriage with the people we love.</p></div></div></section>
 <section id="story"><div class="wrap"><div class="center"><div class="kicker" data-ro="Povestea noastră">Our story</div><h2 data-ro="Momentele care ne-au adus aici">The moments that brought us here</h2></div><ol class="story-moments"><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cum ne-am cunoscut">How we met</h3><p data-ro="Începutul poveștii noastre.">The beginning of our story.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Prima întâlnire">Our first date</h3><p data-ro="Primele amintiri împreună.">The first memories we made together.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cererea în căsătorie">The proposal</h3><p data-ro="Momentul în care am ales să fim împreună pentru totdeauna.">The moment we chose forever.</p></li></ol></div></section>
 <section class="godparents" id="party"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu nașii">A photo of our godparents</div><div><div class="kicker" data-ro="Alături de noi">By our side</div><h2 data-ro="Nașii noștri">Our wedding godparents</h2><p class="lead" data-ro="Un loc special pentru cei care ne vor îndruma și ne vor fi alături la începutul vieții de familie.">A special place for the people who will guide and support us as we begin our married life.</p></div></div></section>
@@ -285,7 +422,7 @@ const root = document.documentElement;
 
 function playHero() {
   video.muted = true;
-  video.play().then(() => {
+  return video.play().then(() => {
     playButton.hidden = true;
   }).catch(() => {
     playButton.hidden = Boolean(video.error);
@@ -311,12 +448,26 @@ if (location.hash) {
     let revealed = false;
     let playbackDeadline;
 
-    function revealInvitation() {
+    async function revealInvitation() {
       if (revealed) return;
       revealed = true;
       window.clearTimeout(playbackDeadline);
       openingVideo.pause();
-      playHero();
+      video.currentTime = 0;
+      await Promise.race([
+        playHero(),
+        new Promise(resolve => window.setTimeout(resolve, 1500))
+      ]);
+      // Reveal after a decoded hero frame when supported, with a bounded fallback.
+      if (!video.paused && video.requestVideoFrameCallback) {
+        await new Promise(resolve => {
+          const deadline = window.setTimeout(resolve, 250);
+          video.requestVideoFrameCallback(() => {
+            window.clearTimeout(deadline);
+            resolve();
+          });
+        });
+      }
       invitation.inert = false;
       root.classList.remove('invitation-closed');
       hero.focus({ preventScroll: true });
@@ -324,7 +475,7 @@ if (location.hash) {
         cover.hidden = true;
       } else {
         cover.classList.add('is-revealing');
-        window.setTimeout(() => { cover.hidden = true; }, 330);
+        window.setTimeout(() => { cover.hidden = true; }, 900);
       }
     }
 
@@ -344,8 +495,6 @@ if (location.hash) {
   }, { once: true });
 }
 
-addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
-});
+
 </script>
 </body></html>
