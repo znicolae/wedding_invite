@@ -291,6 +291,31 @@ html.invitation-closed .floral-cap{opacity:0}
 
 /* Side ornaments begin at the hero edge without a top floral panel. */
 #wedding-invitation::before,#wedding-invitation::after{top:0}
+
+/* Fit the entire bottom ornament to the viewport width. */
+.floral-cap-bottom{
+  left:50%;
+  right:auto;
+  width:100vw;
+  height:43.2264vw;
+  transform:translateX(-50%);
+  background-size:100% auto;
+}
+footer{padding-bottom:max(160px,36vw)}
+/* Match the screen height and crop the centered widescreen clip at the sides. */
+.envelope{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:177.7778vh;
+  height:100vh;
+  width:177.7778dvh;
+  height:100dvh;
+  max-width:none;
+  max-height:none;
+  aspect-ratio:16/9;
+  transform:translate(-50%,-50%);
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
