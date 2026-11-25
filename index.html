@@ -316,6 +316,22 @@ footer{padding-bottom:max(160px,36vw)}
   aspect-ratio:16/9;
   transform:translate(-50%,-50%);
 }
+
+.invitation-copy{max-width:820px}
+.invitation-names{font-family:Italianno,cursive;font-size:clamp(64px,10vw,120px);line-height:1.1;margin:28px 0}
+.godparent-names{font:400 clamp(48px,8vw,82px)/1.15 Italianno,cursive;color:var(--plum);margin:24px 0}
+.invitation-facts{display:grid;gap:22px;margin:40px 0 0}
+.invitation-facts dt{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.invitation-facts dd{margin:0;font:500 clamp(24px,4vw,36px)/1.3 "Cormorant Garamond"}
+.location h3{font:500 36px "Cormorant Garamond";margin:24px 0 12px}
+.map-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:24px}
+.map-buttons .button{margin-top:0;min-height:44px}
+@media(max-width:800px){
+  .hero{min-height:82.8svh}
+  .hero-content{padding-block:64px}
+  .invitation-names{font-size:clamp(58px,15vw,92px)}
+  .map-buttons .button{width:100%;max-width:260px;text-align:center}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -340,11 +356,29 @@ footer{padding-bottom:max(160px,36vw)}
 
 
 <header class="hero" id="top" tabindex="-1"><video muted loop playsinline preload="auto" poster="assets/hand-ring-poster.jpg" aria-hidden="true"><source src="assets/hand-ring.mp4" type="video/mp4"></video><div class="hero-content"><div class="eyebrow" data-ro="O ocazie de sărbătoare">A most delightful occasion</div><div class="hero-script" data-ro="ne căsătorim">we are getting married</div><h1 class="hero-names">Nicolae &amp; Iana</h1><div class="hero-date" data-ro="12 iunie 2027 · Republica Moldova">12 June 2027 · Republic of Moldova</div><a class="hero-cta" href="#rsvp" data-ro="Sărbătorește cu noi">Join the celebration</a></div><a class="scroll" href="#couple" data-ro="Descoperă ↓">Discover ↓</a><button class="hero-play" type="button" hidden data-ro="Redă videoclipul">Play video</button></header>
-<section class="couple" id="couple"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu noi">A photo of us</div><div><div class="kicker"><span data-ro="Prezentare">Meet the couple</span></div><h2>Nicolae &amp; Iana</h2><p class="lead" data-ro="Două vieți, un viitor împreună. Abia așteptăm să sărbătorim începutul căsniciei noastre alături de cei dragi.">Two lives, one shared future. We are looking forward to celebrating the beginning of our marriage with the people we love.</p></div></div></section>
-<section id="story"><div class="wrap"><div class="center"><div class="kicker" data-ro="Povestea noastră">Our story</div><h2 data-ro="Momentele care ne-au adus aici">The moments that brought us here</h2></div><ol class="story-moments"><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cum ne-am cunoscut">How we met</h3><p data-ro="Începutul poveștii noastre.">The beginning of our story.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Prima întâlnire">Our first date</h3><p data-ro="Primele amintiri împreună.">The first memories we made together.</p></li><li><div class="photo-placeholder" data-ro="Amintirea noastră">Our memory</div><h3 data-ro="Cererea în căsătorie">The proposal</h3><p data-ro="Momentul în care am ales să fim împreună pentru totdeauna.">The moment we chose forever.</p></li></ol></div></section>
-<section class="godparents" id="party"><div class="wrap introduction"><div class="photo-placeholder" data-ro="O fotografie cu nașii">A photo of our godparents</div><div><div class="kicker" data-ro="Alături de noi">By our side</div><h2 data-ro="Nașii noștri">Our wedding godparents</h2><p class="lead" data-ro="Un loc special pentru cei care ne vor îndruma și ne vor fi alături la începutul vieții de familie.">A special place for the people who will guide and support us as we begin our married life.</p></div></div></section>
+<section class="invitation" id="couple"><div class="wrap center invitation-copy">
+<div class="kicker" data-ro="Cu multă bucurie, noi">With great joy, we</div>
+<h2 class="invitation-names">Iana &amp; Nicolae</h2>
+<p class="kicker" data-ro="Alături de nașii noștri">Together with our wedding godparents</p>
+<h3 class="godparent-names">Iuliana &amp; Denis</h3>
+<div class="ornament" aria-hidden="true">✦</div>
+<p class="lead" data-ro="Vă invităm să sărbătorim împreună nunta noastră">Invite you to celebrate our wedding with us</p>
+<dl class="invitation-facts">
+<div><dt data-ro="Data">Date</dt><dd><time datetime="2027-06-12T17:30:00+03:00"><span data-ro="12 iunie 2027">12 June 2027</span></time></dd></div>
+<div><dt data-ro="Locația">Venue</dt><dd>Green Village, Roșu, Cahul</dd></div>
+<div><dt data-ro="Ora">Time</dt><dd>17:30</dd></div>
+</dl></div></section>
+<section class="location" id="location"><div class="wrap center">
+<div class="kicker" data-ro="Ne întâlnim aici">Join us here</div>
+<h2 data-ro="Locația">The location</h2>
+<h3>Green Village</h3>
+<p class="lead" data-ro="Roșu, Cahul · Republica Moldova">Roșu, Cahul · Republic of Moldova</p>
+<div class="map-buttons">
+<a class="button" href="https://maps.app.goo.gl/kFrUyxa8bAiAXk1V7" target="_blank" rel="noopener">Google Maps ↗</a>
+<a class="button" href="https://waze.com/ul?ll=45.9423125%2C28.2064375&amp;navigate=yes" target="_blank" rel="noopener">Waze ↗</a>
+</div></div></section>
 <section class="countdown-section" id="countdown"><div class="wrap center"><div class="kicker" data-ro="Rezervați data">Save the date</div><h2 data-ro="Numărăm clipele până la nuntă">Counting down to our day</h2><time datetime="2027-06-12"><span data-ro="12 iunie 2027">12 June 2027</span></time><div class="countdown" role="timer"><div><strong id="countdown-days">00</strong><span data-ro="Zile">Days</span></div><div><strong id="countdown-hours">00</strong><span data-ro="Ore">Hours</span></div><div><strong id="countdown-minutes">00</strong><span data-ro="Minute">Minutes</span></div><div><strong id="countdown-seconds">00</strong><span data-ro="Secunde">Seconds</span></div></div><p class="lead" data-ro="Green Village · Republica Moldova">Green Village · Republic of Moldova</p></div></section>
-<section class="good-to-know" id="details"><div class="wrap"><h2 class="center" data-ro="Bine de știut">Good to know</h2><div class="details-grid"><article><div class="kicker" data-ro="Tematică și stil vestimentar">Theme & dress code</div><h3 data-ro="Un strop de romantism Bridgerton">A little Bridgerton romance</h3><p data-ro="Siluete romantice, croieli rafinate și detalii delicate. Inspirați-vă din Bridgerton și interpretați stilul în felul vostru.">Romantic silhouettes, refined tailoring and delicate details. Take inspiration from Bridgerton and make it your own.</p><p data-ro="Ivoarul, rozul pudrat, lilaul, albastrul pastel și auriul antichizat dau tonul sărbătorii noastre.">Ivory, blush, lilac, powder blue and antique gold set the mood for our celebration.</p></article><article><div class="kicker" data-ro="Cadouri">Gifts</div><h3 data-ro="Prezența voastră înseamnă cel mai mult">Your presence means the most</h3><p data-ro="Cea mai mare bucurie este să vă avem alături. Vom adăuga aici eventualele detalii despre cadouri.">We are happiest knowing you will be there to celebrate with us. We will share any further gift details here.</p></article></div></div></section>
+<section class="good-to-know" id="details"><div class="wrap"><h2 class="center" data-ro="Bine de știut">Good to know</h2><div class="details-grid"><article><div class="kicker" data-ro="Tematică și stil vestimentar">Theme & dress code</div><h3 data-ro="Un strop de romantism Bridgerton">A little Bridgerton romance</h3><p data-ro="Siluete romantice, croieli rafinate și detalii delicate. Inspirați-vă din Bridgerton și interpretați stilul în felul vostru.">Romantic silhouettes, refined tailoring and delicate details. Take inspiration from Bridgerton and make it your own.</p><p data-ro="Ivoarul, rozul pudrat, lilaul, albastrul pastel și auriul antichizat dau tonul sărbătorii noastre.">Ivory, blush, lilac, powder blue and antique gold set the mood for our celebration.</p></article><article><div class="kicker" data-ro="Cadouri">Gifts</div><h3 data-ro="Cărți, vin și amintiri împreună">Books, wine & shared memories</h3><p data-ro="Prezența voastră este darul nostru preferat. Dacă doriți să ne aduceți o mică atenție, ne-ar bucura o carte cu o dedicație sau o sticlă de vin de savurat împreună.">Your presence is our favourite gift. If you would like to bring a little something, we would love a book with a dedication or a bottle of wine to enjoy together.</p><p data-ro="În locul buchetelor, ajutați-ne să umplem biblioteca și să adunăm amintiri în jurul mesei.">In place of bouquets, help us fill our bookshelves and make memories around the table.</p></article></div></div></section>
 <section class="gallery" id="gallery"><div class="wrap center"><div class="kicker" data-ro="Amintiri">Memories</div><h2 data-ro="Galeria noastră">Our gallery</h2><p class="lead" data-ro="O colecție de momente de dinaintea nunții, din ziua ei și de după.">A collection of moments before, during and after the day.</p><div class="gallery-grid"><div class="g" data-ro="FOTOGRAFIE">PHOTO</div><div class="g" data-ro="FOTOGRAFIE">PHOTO</div><div class="g" data-ro="FOTOGRAFIE">PHOTO</div><div class="g" data-ro="FOTOGRAFIE">PHOTO</div><div class="g" data-ro="FOTOGRAFIE">PHOTO</div></div></div></section>
 <section class="rsvp" id="rsvp"><div class="wrap"><div class="rsvp-box"><div class="script" data-ro="Vă rugăm să răspundeți">Kindly reply</div><h2 data-ro="Veți fi alături de noi?">Will you join us?</h2><p data-ro="Spuneți-ne dacă ne veți fi alături, câte persoane vor participa și dacă aveți cerințe alimentare.">Let us know whether you can join us, how many guests will attend and any dietary requirements.</p><a id="rsvp-form-link" class="button" target="_blank" rel="noopener" hidden><span data-ro="Confirmă prezența ↗">Confirm attendance ↗</span></a><p id="rsvp-pending" data-ro="Formularul de confirmare va fi disponibil aici în curând.">The attendance form will be available here soon.</p></div></div></section>
 <footer><div class="footer-script" data-ro="Vă așteptăm cu drag">We cannot wait to see you</div><div class="footer-names">Nicolae &amp; Iana</div><div class="footer-small" data-ro="12 iunie 2027 · Green Village, Republica Moldova">12 June 2027 · Green Village, Republic of Moldova</div></footer>
@@ -360,8 +394,8 @@ if (rsvpFormUrl) {
   document.getElementById('rsvp-pending').hidden = true;
 }
 
-// The reference invitation specifies the date. Count down to local midnight in Moldova.
-const weddingDate = Date.parse('2027-06-12T00:00:00+03:00');
+// Count down to the invitation time in Moldova.
+const weddingDate = Date.parse('2027-06-12T17:30:00+03:00');
 function updateCountdown() {
   const remaining = Math.max(0, Math.floor((weddingDate - Date.now()) / 1000));
   const values = {
