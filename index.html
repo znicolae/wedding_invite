@@ -200,7 +200,7 @@ footer{background:var(--ivory);color:var(--plum)}
   background-size:100% auto;
   background-repeat:no-repeat;
 }
-.floral-cap-top{top:0;background-image:url("assets/floral-top.webp");background-position:center top}
+
 .floral-cap-bottom{bottom:0;background-image:url("assets/floral-bottom.webp");background-position:center bottom}
 #wedding-invitation::before,#wedding-invitation::after{
   top:calc(var(--floral-cap-height) * .72);
@@ -288,6 +288,9 @@ html.invitation-closed .floral-cap{opacity:0}
 @media(prefers-reduced-motion:reduce){
   #wedding-invitation::before,#wedding-invitation::after,.floral-cap{transition:none}
 }
+
+/* Side ornaments begin at the hero edge without a top floral panel. */
+#wedding-invitation::before,#wedding-invitation::after{top:0}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -307,7 +310,7 @@ html.invitation-closed .floral-cap{opacity:0}
   </div>
 </div>
 <div id="wedding-invitation">
-<div class="floral-cap floral-cap-top" aria-hidden="true"></div>
+
 <div class="floral-cap floral-cap-bottom" aria-hidden="true"></div>
 
 
