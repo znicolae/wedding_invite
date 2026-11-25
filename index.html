@@ -259,6 +259,35 @@ footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
   .hero-content{padding:36px 40px}
   .hero-names{font-size:clamp(48px,13vw,88px)}
 }
+
+/* Fade the floral frame in with the envelope's exit. */
+:root{--floral-border-width:clamp(94px,12vw,188px)}
+#wedding-invitation{--floral-cap-height:calc((100vw - var(--floral-border-width)) * .371)}
+.floral-cap{background-size:85% auto}
+#wedding-invitation::before,#wedding-invitation::after,.floral-cap{
+  opacity:1;
+  transition:opacity .9s ease;
+}
+html.invitation-closed #wedding-invitation::before,
+html.invitation-closed #wedding-invitation::after,
+html.invitation-closed .floral-cap{opacity:0}
+.invitation-cover{background-image:none;padding:0}
+.envelope{
+  width:min(100%,177.7778vh);
+  width:min(100%,177.7778svh);
+  aspect-ratio:16/9;
+}
+.hero{min-height:85svh}
+.hero-content{padding-block:64px}
+@media(max-width:800px){
+  :root{--floral-border-width:clamp(68px,19.5vw,95px)}
+  #wedding-invitation{--floral-cap-height:37.1vw}
+  .hero{min-height:72svh}
+  .hero-content{padding:56px 40px}
+}
+@media(prefers-reduced-motion:reduce){
+  #wedding-invitation::before,#wedding-invitation::after,.floral-cap{transition:none}
+}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -270,8 +299,8 @@ footer{padding-bottom:max(140px,calc(var(--floral-cap-height) * .75))}
 </details>
 <div class="invitation-cover" id="invitation-cover" hidden>
   <div class="envelope">
-    <img src="assets/blue-thumbnail.jpg" alt="" width="971" height="2048">
-    <video src="assets/blue-floral-invitation.mp4" poster="assets/blue-thumbnail.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+    <img src="assets/envelope-new.jpg" alt="" width="1280" height="720">
+    <video src="assets/envelope-new.mp4" poster="assets/envelope-new.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
     <button type="button" aria-label="Open the invitation for Nicolae and Iana" data-ro-label="Deschide invitația la nunta lui Nicolae și a Ianei">
       <span class="envelope-prompt" aria-hidden="true" data-ro="Atinge pentru a deschide">Tap to open</span>
     </button>
