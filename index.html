@@ -201,7 +201,7 @@ footer{background:var(--ivory);color:var(--plum)}
   background-repeat:no-repeat;
 }
 
-.floral-cap-bottom{bottom:0;background-image:url("assets/floral-bottom.webp");background-position:center bottom}
+.floral-cap-bottom{bottom:0;background-image:url("assets/banner-bottom.webp");background-position:center bottom}
 #wedding-invitation::before,#wedding-invitation::after{
   top:calc(var(--floral-cap-height) * .72);
   bottom:calc(var(--floral-cap-height) * .72);
@@ -332,6 +332,40 @@ footer{padding-bottom:max(160px,36vw)}
   .invitation-names{font-size:clamp(58px,15vw,92px)}
   .map-buttons .button{width:100%;max-width:260px;text-align:center}
 }
+
+/* Only the central strip repeats; the end pieces retain their proportions. */
+#wedding-invitation{margin-inline:0;--side-component-width:clamp(180px,26.9792vw,420px)}
+#wedding-invitation::before,#wedding-invitation::after{content:none}
+.floral-side{
+  position:absolute;
+  top:0;
+  bottom:20.25vw;
+  width:var(--side-component-width);
+  display:flex;
+  flex-direction:column;
+  pointer-events:none;
+  z-index:2;
+  opacity:1;
+  transition:opacity .9s ease;
+}
+.floral-side-left{left:0}
+.floral-side-right{right:0}
+.floral-side-top,.floral-side-bottom{flex:none;background-size:100% 100%;background-repeat:no-repeat}
+.floral-side-top{aspect-ratio:518/832}
+.floral-side-bottom{aspect-ratio:518/769}
+.floral-side-middle{flex:1;min-height:0;background-repeat:repeat-y;background-size:100% auto}
+.floral-side-left .floral-side-top{background-image:url("assets/banner-left-top.webp")}
+.floral-side-left .floral-side-middle{background-image:url("assets/banner-left-middle.webp")}
+.floral-side-left .floral-side-bottom{background-image:url("assets/banner-left-bottom.webp")}
+.floral-side-right .floral-side-top{background-image:url("assets/banner-right-top.webp")}
+.floral-side-right .floral-side-middle{background-image:url("assets/banner-right-middle.webp")}
+.floral-side-right .floral-side-bottom{background-image:url("assets/banner-right-bottom.webp")}
+html.invitation-closed .floral-side{opacity:0}
+.floral-cap-bottom{left:0;right:0;width:100%;height:25.3125vw;transform:none;background-size:100% auto}
+footer{padding-bottom:max(160px,25.3125vw)}
+section>.wrap,footer>*{position:relative;z-index:3}
+@media(max-width:800px){#wedding-invitation{--side-component-width:clamp(180px,48vw,240px)}}
+@media(prefers-reduced-motion:reduce){.floral-side{transition:none}}
 </style></head>
 <body>
 <details class="language-switcher" hidden>
@@ -351,6 +385,8 @@ footer{padding-bottom:max(160px,36vw)}
   </div>
 </div>
 <div id="wedding-invitation">
+<div class="floral-side floral-side-left" aria-hidden="true"><div class="floral-side-top"></div><div class="floral-side-middle"></div><div class="floral-side-bottom"></div></div>
+<div class="floral-side floral-side-right" aria-hidden="true"><div class="floral-side-top"></div><div class="floral-side-middle"></div><div class="floral-side-bottom"></div></div>
 
 <div class="floral-cap floral-cap-bottom" aria-hidden="true"></div>
 
