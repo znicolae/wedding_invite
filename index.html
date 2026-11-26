@@ -356,6 +356,28 @@ footer{padding-bottom:max(160px,36vw)}
 .music-controls .music-pause-icon{display:none}
 .music-controls button[data-playing="true"] .music-play-icon{display:none}
 .music-controls button[data-playing="true"] .music-pause-icon{display:block}
+
+.envelope img.envelope-logo{
+  inset:auto;
+  left:50%;
+  top:50%;
+  width:min(48vw,34svh,340px);
+  height:auto;
+  max-height:50svh;
+  object-fit:contain;
+  z-index:3;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(1);
+  transition:opacity .7s ease,transform .85s cubic-bezier(.2,.65,.25,1);
+}
+.envelope img.envelope-logo.is-visible{opacity:1}
+.invitation-cover.is-revealing .envelope img.envelope-logo{
+  opacity:0;
+  transform:translate(-50%,-50%) scale(1.3);
+  transition-duration:.85s;
+}
+@media(prefers-reduced-motion:reduce){.envelope img.envelope-logo{transition:none}}
 </style></head>
 <body>
 <audio id="envelope-voice" src="assets/envelope-voice-delayed.mp3" preload="auto"></audio>
@@ -382,6 +404,7 @@ footer{padding-bottom:max(160px,36vw)}
   <div class="envelope">
     <img src="assets/envelope-final-poster.jpg" alt="" width="1280" height="720">
     <video src="assets/envelope-final.mp4" poster="assets/envelope-final-poster.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+    <img class="envelope-logo" src="assets/envelope-cameo.png" alt="" aria-hidden="true" width="1198" height="1313">
     <button type="button" aria-label="Open the invitation for Nicolae and Iana" data-ro-label="Deschide invitația la nunta lui Nicolae și a Ianei">
       <span class="envelope-prompt" aria-hidden="true" data-ro="Atinge pentru a deschide">Tap to open</span>
     </button>
@@ -588,6 +611,18 @@ const cover = document.getElementById('invitation-cover');
 const invitation = document.getElementById('wedding-invitation');
 const envelope = cover.querySelector('.envelope');
 const openingVideo = envelope.querySelector('video');
+const envelopeLogo = envelope.querySelector('.envelope-logo');
+
+function syncEnvelopeLogo() {
+  const halfway = Number.isFinite(openingVideo.duration)
+    && openingVideo.duration > 0
+    && openingVideo.currentTime >= openingVideo.duration * 0.5;
+  envelopeLogo.classList.toggle('is-visible', halfway);
+}
+// Follow media time so buffering and seeking keep the logo in sync.
+openingVideo.addEventListener('timeupdate', syncEnvelopeLogo);
+openingVideo.addEventListener('seeked', syncEnvelopeLogo);
+openingVideo.addEventListener('loadedmetadata', syncEnvelopeLogo);
 const openButton = envelope.querySelector('button');
 const hero = document.getElementById('top');
 const video = hero.querySelector('video');
