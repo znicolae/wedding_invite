@@ -413,7 +413,7 @@ button,.button,.hero-cta,.language-switcher summary{border-radius:5px}
     <span id="theme-pause-label" class="visually-hidden" data-ro="Oprește temporar muzica" hidden>Pause music</span>
   </button>
   <label for="theme-volume"><span class="visually-hidden" data-ro="Volumul muzicii">Music volume</span>
-    <input id="theme-volume" type="range" min="0" max="100" value="40" step="1">
+    <input id="theme-volume" type="range" min="0" max="100" value="55" step="1">
   </label>
 </div>
 <details class="language-switcher" hidden>
@@ -565,6 +565,7 @@ const themePlayLabel = document.getElementById('theme-play-label');
 const themePauseLabel = document.getElementById('theme-pause-label');
 let themeAudioContext;
 let themeGain;
+let voiceGain;
 themeTrack.volume = Number(themeVolume.value) / 100;
 
 function prepareThemeVolume() {
@@ -578,6 +579,11 @@ function prepareThemeVolume() {
       source.connect(themeGain);
       themeGain.connect(themeAudioContext.destination);
       themeTrack.volume = 1;
+      const voiceSource = themeAudioContext.createMediaElementSource(voiceTrack);
+      voiceGain = themeAudioContext.createGain();
+      voiceGain.gain.value = 1.15;
+      voiceSource.connect(voiceGain);
+      voiceGain.connect(themeAudioContext.destination);
     } catch {
       // Fall back to the media element's volume where Web Audio is unavailable.
       themeGain = null;
