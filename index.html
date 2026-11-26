@@ -366,8 +366,27 @@ footer{padding-bottom:max(160px,25.3125vw)}
 section>.wrap,footer>*{position:relative;z-index:3}
 @media(max-width:800px){#wedding-invitation{--side-component-width:clamp(180px,48vw,240px)}}
 @media(prefers-reduced-motion:reduce){.floral-side{transition:none}}
+
+.music-controls{position:fixed;z-index:41;right:max(12px,env(safe-area-inset-right));top:max(66px,calc(env(safe-area-inset-top) + 66px));display:flex;align-items:center;gap:10px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fbf7edf5;color:var(--plum);box-shadow:0 2px 12px #51336114}
+.music-controls[hidden],.music-controls span[hidden]{display:none}
+.music-controls button{min-height:38px;max-width:145px;border:0;background:transparent;color:inherit;cursor:pointer;font:500 11px/1.3 "DM Sans",sans-serif;padding:4px}
+.music-controls label{display:flex;align-items:center}
+.music-controls input{width:76px;accent-color:var(--plum);min-height:38px}
+.music-controls :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 </style></head>
 <body>
+<audio id="envelope-voice" src="assets/envelope-voice.mp3" preload="auto"></audio>
+<audio id="background-theme" src="assets/main-theme.mp3" preload="auto" loop></audio>
+<div class="music-controls" hidden role="group" aria-label="Background music" data-ro-label="Muzică de fundal">
+  <button id="theme-toggle" type="button">
+    <span id="theme-play-label" data-ro="Redă muzica">Play music</span>
+    <span id="theme-pause-label" data-ro="Oprește temporar muzica" hidden>Pause music</span>
+  </button>
+  <label for="theme-volume"><span class="visually-hidden" data-ro="Volumul muzicii">Music volume</span>
+    <input id="theme-volume" type="range" min="0" max="100" value="40" step="1">
+  </label>
+</div>
 <details class="language-switcher" hidden>
   <summary aria-label="Choose language: English"><span class="flag-en"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#012169" d="M0 0h30v20H0z"/><path stroke="#fff" stroke-width="4" d="m0 0 30 20m0-20L0 20"/><path stroke="#C8102E" stroke-width="1.5" d="m0 0 30 20m0-20L0 20"/><path stroke="#fff" stroke-width="7" d="M15 0v20M0 10h30"/><path stroke="#C8102E" stroke-width="4" d="M15 0v20M0 10h30"/></svg></span><span class="flag-ro"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#002B7F" d="M0 0h10v20H0z"/><path fill="#FCD116" d="M10 0h10v20H10z"/><path fill="#CE1126" d="M20 0h10v20H20z"/></svg></span><span class="current-language">EN</span><span class="language-chevron" aria-hidden="true"></span></summary>
   <div class="language-options">
@@ -377,8 +396,8 @@ section>.wrap,footer>*{position:relative;z-index:3}
 </details>
 <div class="invitation-cover" id="invitation-cover" hidden>
   <div class="envelope">
-    <img src="assets/envelope-new.jpg" alt="" width="1280" height="720">
-    <video src="assets/envelope-new.mp4" poster="assets/envelope-new.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+    <img src="assets/envelope-final-poster.jpg" alt="" width="1280" height="720">
+    <video src="assets/envelope-final.mp4" poster="assets/envelope-final-poster.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
     <button type="button" aria-label="Open the invitation for Nicolae and Iana" data-ro-label="Deschide invitația la nunta lui Nicolae și a Ianei">
       <span class="envelope-prompt" aria-hidden="true" data-ro="Atinge pentru a deschide">Tap to open</span>
     </button>
@@ -508,6 +527,79 @@ document.addEventListener('click', event => {
   if (!languageSwitcher.contains(event.target)) languageSwitcher.open = false;
 });
 
+
+const voiceTrack = document.getElementById('envelope-voice');
+const themeTrack = document.getElementById('background-theme');
+const musicControls = document.querySelector('.music-controls');
+const themeToggle = document.getElementById('theme-toggle');
+const themeVolume = document.getElementById('theme-volume');
+const themePlayLabel = document.getElementById('theme-play-label');
+const themePauseLabel = document.getElementById('theme-pause-label');
+let themeAudioContext;
+let themeGain;
+themeTrack.volume = Number(themeVolume.value) / 100;
+
+function prepareThemeVolume() {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!themeAudioContext && AudioContextClass) {
+    try {
+      themeAudioContext = new AudioContextClass();
+      const source = themeAudioContext.createMediaElementSource(themeTrack);
+      themeGain = themeAudioContext.createGain();
+      themeGain.gain.value = Number(themeVolume.value) / 100;
+      source.connect(themeGain);
+      themeGain.connect(themeAudioContext.destination);
+      themeTrack.volume = 1;
+    } catch {
+      // Fall back to the media element's volume where Web Audio is unavailable.
+      themeGain = null;
+    }
+  }
+  if (themeAudioContext?.state === 'suspended') {
+    themeAudioContext.resume().catch(() => {});
+  }
+}
+
+function syncMusicControls() {
+  const playing = !themeTrack.paused && !themeTrack.ended;
+  themePlayLabel.hidden = playing;
+  themePauseLabel.hidden = !playing;
+}
+themeTrack.addEventListener('play', syncMusicControls);
+themeTrack.addEventListener('pause', syncMusicControls);
+themeTrack.addEventListener('ended', syncMusicControls);
+themeTrack.addEventListener('error', syncMusicControls);
+themeToggle.addEventListener('click', () => {
+  if (themeTrack.paused) {
+    prepareThemeVolume();
+    themeTrack.play().catch(syncMusicControls);
+  } else {
+    themeTrack.pause();
+  }
+});
+themeVolume.addEventListener('input', () => {
+  const volume = Number(themeVolume.value) / 100;
+  if (themeGain) {
+    themeGain.gain.value = volume;
+  } else {
+    themeTrack.volume = volume;
+  }
+});
+
+function stopEnvelopeVoice() {
+  voiceTrack.pause();
+  voiceTrack.currentTime = 0;
+}
+function startInvitationAudio() {
+  prepareThemeVolume();
+  musicControls.hidden = false;
+  voiceTrack.currentTime = 0;
+  voiceTrack.playbackRate = 1.2;
+  // Both requests run directly in the envelope tap for mobile playback permission.
+  voiceTrack.play().catch(() => {});
+  themeTrack.play().catch(syncMusicControls);
+}
+
 const cover = document.getElementById('invitation-cover');
 const invitation = document.getElementById('wedding-invitation');
 const envelope = cover.querySelector('.envelope');
@@ -531,6 +623,7 @@ playButton.addEventListener('click', playHero);
 video.addEventListener('error', () => { playButton.hidden = true; });
 
 if (location.hash) {
+  musicControls.hidden = false;
   playHero();
 } else {
   root.classList.add('invitation-closed');
@@ -538,6 +631,7 @@ if (location.hash) {
   cover.hidden = false;
 
   openButton.addEventListener('click', () => {
+    startInvitationAudio();
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo(0, 0);
     envelope.classList.add('is-opening');
@@ -570,10 +664,14 @@ if (location.hash) {
       root.classList.remove('invitation-closed');
       hero.focus({ preventScroll: true });
       if (reduceMotion) {
+        stopEnvelopeVoice();
         cover.hidden = true;
       } else {
         cover.classList.add('is-revealing');
-        window.setTimeout(() => { cover.hidden = true; }, 900);
+        window.setTimeout(() => {
+          stopEnvelopeVoice();
+          cover.hidden = true;
+        }, 900);
       }
     }
 
