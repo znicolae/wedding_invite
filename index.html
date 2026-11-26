@@ -378,6 +378,29 @@ footer{padding-bottom:max(160px,36vw)}
   transition-duration:.85s;
 }
 @media(prefers-reduced-motion:reduce){.envelope img.envelope-logo{transition:none}}
+
+.envelope img.envelope-logo{
+  width:min(43.2vw,30.6svh,306px);
+  max-height:45svh;
+  filter:brightness(0) saturate(100%) invert(75%) sepia(15%) saturate(430%) hue-rotate(162deg) brightness(95%) contrast(85%);
+}
+button,.button,.hero-cta,.language-switcher summary{border-radius:5px}
+.map-buttons .button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:56px;
+  padding:12px 20px;
+}
+.map-buttons .button img{
+  display:block;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  object-fit:contain;
+}
+.map-buttons .button span{line-height:1.5}
 </style></head>
 <body>
 <audio id="envelope-voice" src="assets/envelope-voice-delayed.mp3" preload="auto"></audio>
@@ -434,8 +457,8 @@ footer{padding-bottom:max(160px,36vw)}
 <h3>Green Village</h3>
 <p class="lead" data-ro="Roșu, Cahul · Republica Moldova">Roșu, Cahul · Republic of Moldova</p>
 <div class="map-buttons">
-<a class="button" href="https://maps.app.goo.gl/kFrUyxa8bAiAXk1V7" target="_blank" rel="noopener">Google Maps ↗</a>
-<a class="button" href="https://waze.com/ul?ll=45.9423125%2C28.2064375&amp;navigate=yes" target="_blank" rel="noopener">Waze ↗</a>
+<a class="button" href="https://maps.app.goo.gl/kFrUyxa8bAiAXk1V7" target="_blank" rel="noopener"><img src="assets/google-maps-icon.png" alt="" width="32" height="32"><span>Google Maps ↗</span></a>
+<a class="button" href="https://waze.com/ul?ll=45.9423125%2C28.2064375&amp;navigate=yes" target="_blank" rel="noopener"><img src="assets/waze-icon.png" alt="" width="32" height="32"><span>Waze ↗</span></a>
 </div></div></section>
 <section class="countdown-section" id="countdown"><div class="wrap center"><div class="kicker" data-ro="Rezervați data">Save the date</div><h2 data-ro="Numărăm clipele până la nuntă">Counting down to our day</h2><time datetime="2027-06-12"><span data-ro="12 iunie 2027">12 June 2027</span></time><div class="countdown" role="timer"><div><strong id="countdown-days">00</strong><span data-ro="Zile">Days</span></div><div><strong id="countdown-hours">00</strong><span data-ro="Ore">Hours</span></div><div><strong id="countdown-minutes">00</strong><span data-ro="Minute">Minutes</span></div><div><strong id="countdown-seconds">00</strong><span data-ro="Secunde">Seconds</span></div></div><p class="lead" data-ro="Green Village · Republica Moldova">Green Village · Republic of Moldova</p></div></section>
 <section class="good-to-know" id="details"><div class="wrap"><h2 class="center" data-ro="Bine de știut">Good to know</h2><div class="details-grid"><article><div class="kicker" data-ro="Tematică și stil vestimentar">Theme & dress code</div><h3 data-ro="Un strop de romantism Bridgerton">A little Bridgerton romance</h3><p data-ro="Siluete romantice, croieli rafinate și detalii delicate. Inspirați-vă din Bridgerton și interpretați stilul în felul vostru.">Romantic silhouettes, refined tailoring and delicate details. Take inspiration from Bridgerton and make it your own.</p><p data-ro="Ivoarul, rozul pudrat, lilaul, albastrul pastel și auriul antichizat dau tonul sărbătorii noastre.">Ivory, blush, lilac, powder blue and antique gold set the mood for our celebration.</p></article><article><div class="kicker" data-ro="Cadouri">Gifts</div><h3 data-ro="Cărți, vin și amintiri împreună">Books, wine & shared memories</h3><p data-ro="Prezența voastră este darul nostru preferat. Dacă doriți să ne aduceți o mică atenție, ne-ar bucura o carte cu o dedicație sau o sticlă de vin de savurat împreună.">Your presence is our favourite gift. If you would like to bring a little something, we would love a book with a dedication or a bottle of wine to enjoy together.</p><p data-ro="În locul buchetelor, ajutați-ne să umplem biblioteca și să adunăm amintiri în jurul mesei.">In place of bouquets, help us fill our bookshelves and make memories around the table.</p></article></div></div></section>
