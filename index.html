@@ -403,7 +403,7 @@ button,.button,.hero-cta,.language-switcher summary{border-radius:5px}
 .map-buttons .button span{line-height:1.5}
 </style></head>
 <body>
-<audio id="envelope-voice" src="assets/envelope-voice-125.mp3" preload="auto"></audio>
+<audio id="envelope-voice" src="assets/envelope-voice-complete.mp3" preload="auto"></audio>
 <audio id="background-theme" src="assets/main-theme.mp3" preload="auto" loop></audio>
 <div class="music-controls" hidden role="group" aria-label="Background music" data-ro-label="Muzică de fundal">
   <button id="theme-toggle" type="button" data-playing="false">
@@ -625,8 +625,9 @@ function startInvitationAudio() {
   prepareThemeVolume();
   musicControls.hidden = false;
   voiceTrack.currentTime = 0;
-  voiceTrack.playbackRate = 1.25;
-  // The voice asset begins with 1.25 seconds of silence: one second at 1.25× speed.
+  voiceTrack.playbackRate = 1;
+  // The complete recording is pre-rendered at 1.25× with a one-second lead-in.
+  // Let the media element reach its natural ended event independently of the envelope.
   // Both requests run directly in the tap to preserve mobile playback permission.
   voiceTrack.play().catch(() => {});
   themeTrack.play().catch(syncMusicControls);
