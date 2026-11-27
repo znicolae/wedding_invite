@@ -582,10 +582,7 @@ function prepareThemeVolume() {
       const voiceSource = themeAudioContext.createMediaElementSource(voiceTrack);
       voiceGain = themeAudioContext.createGain();
       voiceGain.gain.value = 1.15;
-      const voiceDelay = themeAudioContext.createDelay(1);
-      voiceDelay.delayTime.value = 1;
-      voiceSource.connect(voiceDelay);
-      voiceDelay.connect(voiceGain);
+      voiceSource.connect(voiceGain);
       voiceGain.connect(themeAudioContext.destination);
     } catch {
       // Fall back to the media element's volume where Web Audio is unavailable.
@@ -630,7 +627,6 @@ function startInvitationAudio() {
   voiceTrack.currentTime = 0;
   voiceTrack.playbackRate = 1.2;
   // Play the original uploaded recording at 1.2× through its natural end.
-  // A Web Audio delay provides the one-second lead-in.
   // Both requests run directly in the tap to preserve mobile playback permission.
   voiceTrack.play().catch(() => {});
   themeTrack.play().catch(syncMusicControls);
@@ -658,7 +654,24 @@ const video = hero.querySelector('video');
 const playButton = hero.querySelector('button');
 const root = document.documentElement;
 
+let heroWaitingForVoice = false;
 function playHero() {
+  // Some mobile browsers interrupt other media when a new video starts.
+  // Keep the hero's first-frame poster visible until narration has fully ended.
+  if (!voiceTrack.paused && !voiceTrack.ended) {
+    if (!heroWaitingForVoice) {
+      heroWaitingForVoice = true;
+      voiceTrack.addEventListener('ended', () => {
+        heroWaitingForVoice = false;
+        playHero();
+      }, { once: true });
+      voiceTrack.addEventListener('error', () => {
+        heroWaitingForVoice = false;
+        playHero();
+      }, { once: true });
+    }
+    return Promise.resolve();
+  }
   video.muted = true;
   return video.play().then(() => {
     playButton.hidden = true;
